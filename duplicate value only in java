@@ -1,0 +1,7 @@
+  Integer c1 = 19;
+        Integer c2 = 19;
+        System.out.println(c1==c2);
+        Integer b1 = 128;
+        Integer b2 = 128;
+        System.out.println(b1==b2);
+    }
