@@ -1,0 +1,8 @@
+public class Wrapper_Class {
+    public static void main(String[] args) {
+        Integer a = 100;
+        int a1  = 10;
+        System.out.println(a);// Wrapper Class access ho  rhi hai heap memory m!!
+        System.out.println(a1);
+    }
+}
