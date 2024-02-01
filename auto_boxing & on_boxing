@@ -5,10 +5,10 @@ public class Wrapper_Class {
        // System.out.println(a);// Wrapper Class access ho  rhi hai heap memory m!!
        // System.out.println(a1);
         a=a1;
-        System.out.println(a); //10 (Wrapper to int) This process is known as auto boxing!!
+        System.out.println(a); //10 (int --> Wrapper) This process is known as autoboxing!!
         Integer ii = 100;
         int i= 10;
-        i=ii;  // this is known as (onboxing)  int to wrapper
+        i=ii;  // this is known as (unboxing)   wrapper --> int
         System.out.println(i); //100
     }
 }
