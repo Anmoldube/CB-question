@@ -1,0 +1,14 @@
+public class Wrapper_Class {
+    public static void main(String[] args) {
+        Integer a = 100;
+        int a1  = 10;
+       // System.out.println(a);// Wrapper Class access ho  rhi hai heap memory m!!
+       // System.out.println(a1);
+        a=a1;
+        System.out.println(a); //10 (Wrapper to int) This process is known as auto boxing!!
+        Integer ii = 100;
+        int i= 10;
+        i=ii;  // this is known as (onboxing)  int to wrapper
+        System.out.println(i); //100
+    }
+}
