@@ -1,0 +1,52 @@
+    import java.util.*;
+    public class Maximum_sum_path_in_twoArrays {
+        public static int Maximum_sum(int[] arr_1,int[] arr_2){
+            int sum1=0,sum2=0,result=0;
+            int i=0,j=0;
+            while(i<arr_1.length && j<arr_2.length){
+                if(arr_1[i]<arr_2[j]){
+                    sum1+=arr_1[i++];
+                }
+                else if(arr_1[i]>arr_2[j]){
+                    sum2+=arr_2[j++];
+                }
+                else{
+                    result+=Math.max(sum1,sum2);
+                    sum1=0;
+                    sum2=0;
+                    sum1+=arr_1[i];
+                    sum2+=arr_2[j];
+                    i++;
+                    j++;
+                }
+            }
+            while(i<arr_1.length){
+                sum1+=arr_1[i++];
+            }
+            while(j<arr_2.length){
+                sum2+=arr_2[j++];
+            }
+            result+=Math.max(sum1,sum2);
+            return result;
+        }
+        public static void main(String args[]) {
+            Scanner sc=new Scanner (System.in);
+            int test=sc.nextInt();
+            while(test>0){
+                int n=sc.nextInt();
+                int[] arr_1=new int[n];
+                int m=sc.nextInt();
+                int [] arr_2=new int[m];
+                for(int i=0;i<arr_1.length;i++){
+                    arr_1[i]=sc.nextInt();
+                }
+                for(int i=0;i<arr_2.length;i++){
+                    arr_2[i]=sc.nextInt();
+                }
+                int result=Maximum_sum(arr_1,arr_2);
+                System.out.println(result);
+                test--;
+            }
+            sc.close();
+     }
+}
