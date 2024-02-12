@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class calculate_the_sum {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = sc.nextInt();
+        }
+        int q = sc.nextInt();
+        while (q > 0) {
+            int x = sc.nextInt();
+            int[] brr = new int[n];
+            for (int i = 0; i < arr.length; i++) {
+                int j = i - x;
+                if (j < 0) {
+                    j = j + n;
+                }
+                brr[i] = arr[i] + arr[j];
+            }
+            q--;
+            arr = brr;
+        }
+            int sum =0;
+            for (int i = 0; i < arr.length; i++) {
+                sum +=  arr[i];
+            }
+            sum = sum%100000;
+            System.out.println(sum);
+   sc.close();
+    }
+}
