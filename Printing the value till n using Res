@@ -1,0 +1,14 @@
+public class withoutloop {
+    public static void main(String[] args) {
+        int  n =6;
+        mynumber(n);
+    }
+    public static void mynumber(int n){
+        if(n==1){
+            System.out.println(1);
+            return;
+        }
+        System.out.println(n);
+        mynumber(n-1);
+    }
+}
