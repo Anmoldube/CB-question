@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Recursionfabcki {
+    public static void main(String[] args) {
+        // int n= 6;
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        System.out.println(fab(n));
+    }
+    public static int fab(int n){
+        if(n==0){
+            return 0;
+        }
+        if(n==1){
+            return 1;
+        }
+        // int f = fab(n-1);
+        // int f2 = fab(n-2);
+        // return f+f2;
+        return fab(n-1)+fab(n-2);
+    }
+}
