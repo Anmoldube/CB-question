@@ -1,0 +1,15 @@
+public class ElementIndex {
+    public static void main(String[] args) {
+        int[] arr = {2,3,5,3,56,44,2};
+        System.out.println(firstIndex(arr, 0, 3));
+    }
+    public static int firstIndex(int[] arr,int index,int item){
+        if(arr[index] == item){
+            return index;
+        }
+        if(index == arr.length){
+            return -1;
+        }
+        return firstIndex(arr, index+1, item);
+    }
+}
