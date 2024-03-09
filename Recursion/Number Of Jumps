@@ -17,3 +17,32 @@ public class numberOfJumps {
             return fp+fp1+fp2;
     }
 }
+
+--------------------------------------from loop---------------------------------
+
+public class demo1 {
+        public static void main(String[] args) {
+            int n = 4;
+            jumps(n,0, "");
+        }
+        public static int jumps(int end,int curt,String ans) {
+            if(curt==end){
+                System.out.println(ans);
+                return 1;
+            }
+            if(curt>end){
+                return 0;
+            }
+                // int fp = jumps(end, curt+1, ans+1);
+                // int fp1 = jumps(end, curt+2, ans+2);
+                // int fp2 = jumps(end, curt+3, ans+3);
+                int count = 0;
+                for (int i = 1; i <=3; i++) {
+                    count  += jumps(end, curt+i, ans+i);
+                }
+                return count;
+        }
+}
+
+
+
