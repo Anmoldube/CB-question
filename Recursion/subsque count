@@ -1,0 +1,21 @@
+public class Allsubsques {
+    static int co = 0;
+    public static void main(String[] args)
+    {
+        String str = "abc";
+        printSubSeq(str, "");
+        System.out.println(co);
+    }
+     public static void printSubSeq(String str , String ans)
+     {
+            if(str.length()==0)
+            {
+                System.out.println(ans);
+                co++;
+                return;
+            }
+                char ch = str.charAt(0);
+                printSubSeq(str.substring(1), ans);
+                printSubSeq(str.substring(1), ans+ch);
+        }
+}
