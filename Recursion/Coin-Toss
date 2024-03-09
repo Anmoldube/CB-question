@@ -1,0 +1,15 @@
+public class Coin_toss {
+    public static void main(String[] args) {
+        int n = 2;
+        coinToss(n, "");
+    }
+
+    public static void coinToss(int n, String ans) {
+        if (n == 0) {
+            System.out.println(ans);
+            return;
+        }
+        coinToss(n - 1, ans + "H");
+        coinToss(n - 1, ans + "T");
+    }
+}
