@@ -1,0 +1,19 @@
+public class Keypad {
+    static String[] key = { "", "", "abc" , "def", "ghi", " jkl", "mno", "pqrs", "tuv", "wxyz" };
+    public static void main(String[] args) {
+            String str = "23";
+            keyPressed(str, "");
+    }
+
+    public static void keyPressed(String ques, String ans) {
+        if (ques.length() == 0) {
+            System.out.print(ans + " ");
+            return;
+        }
+        char ch = ques.charAt(0); // ch --> 49
+        String pressStr = key[ch - 48]; // ch - 48 because of ascii value ch is storing the value for this example is 1 = 49
+        for (int i = 0; i < pressStr.length(); i++) {
+            keyPressed(ques.substring(1), ans + pressStr.charAt(i));
+        }
+    }
+}
