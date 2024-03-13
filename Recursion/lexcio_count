@@ -1,0 +1,20 @@
+public class lexcio_count {
+    public static void main(String[] args) {
+        int current = 0;
+        int end = 1000;
+        PrintCount(current, end);
+    }
+    public static void PrintCount(int current, int end){
+        if(current > end){
+            return;
+        }
+        System.out.println(current);
+        int  i = 0;
+        if (current==0) {
+            i =1;
+        }
+        for (; i <= 9; i++) {
+            PrintCount(current*10+i, end);
+        }
+    }
+}
