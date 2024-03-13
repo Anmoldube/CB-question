@@ -1,0 +1,14 @@
+public class Tower_of_hanoi {
+    public static void main(String[] args) {
+        int n = 3;
+        toh(n,"scr" , "helper" , "dist");
+    }
+    public static void toh(int n , String s, String h, String d){
+        if(n==0){
+            return;
+        }
+        toh(n-1, s, d, h);
+        System.out.println("move " +n+"th dick form " +s+ " to dist");
+        toh(n-1, h, s, d);
+    }
+}
