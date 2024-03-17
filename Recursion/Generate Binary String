@@ -1,0 +1,20 @@
+public class Genrate_binary_String {
+    public static void main(String[] args) {
+        String s = "1??0?101";
+        function(s, "");
+    }
+    public static void function(String s, String ans){
+        if(s.length()==0){
+            System.err.println(ans);
+            return;
+        }
+        char ch = s.charAt(0);
+        if(ch=='?'){
+            function(s.substring(1), ans+"0");
+            function(s.substring(1), ans+"1");
+        }
+        else{
+            function(s.substring(1), ans+ch);
+        }
+    }
+}
