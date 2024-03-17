@@ -1,0 +1,17 @@
+public class String_with_ascii {
+    public static void main(String[] args) {
+        String s = "ab";
+        System.out.println(fuc(s, ""));
+    }
+    public static int fuc(String s,String ans){
+        if(s.length()==0){
+            System.out.println(ans);
+            return 0;
+        }
+        char ch = s.charAt(0);
+        int f = fuc(s.substring(1), ans);
+        int fs= fuc(s.substring(1), ans+ch);
+        int fc = fuc(s.substring(1), ans+ (int)ch);
+        return f+fs+fc;
+    }
+}
