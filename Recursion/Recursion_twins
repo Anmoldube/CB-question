@@ -1,0 +1,17 @@
+public class Recursion_twins {
+    public static void main(String[] args) {
+        String s = "AXAXA";
+        System.out.println(func(s));
+    }
+    public static int func(String s){
+        if(s.length()==2){
+            return 0;
+        }
+        int count = 0;
+        if(s.charAt(0)==s.charAt(2)){
+            count++;
+        }
+        count = count + func(s.substring(1));
+        return count;
+    }
+}
