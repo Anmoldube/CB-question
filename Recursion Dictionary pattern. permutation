@@ -1,0 +1,28 @@
+import java.util.*;
+
+public class Recursion_Dect {
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+        String s = "avb";
+        Rec(s, "", s,list);
+        Collections.sort(list);
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i));
+        }
+    }
+
+    public static void Rec(String s, String ans, String org,ArrayList<String> list ) {
+        if (s.length() == 0) {
+            if (ans.compareTo(org) > 0) {
+                // System.out.println(ans);
+                list.add(ans);
+            }
+            return;
+        }
+        for (int i = 0; i < s.length(); i++) {
+            char ch = s.charAt(i);
+            String ros = s.substring(0, i) + s.substring(i + 1);
+            Rec(ros, ans + ch, org,list);
+        }
+    }
+}
