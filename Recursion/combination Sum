@@ -1,0 +1,27 @@
+class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+   ArrayList<Integer> list = new ArrayList<>();
+        List<List<Integer>> ans = new ArrayList<>();
+        Coin(candidates, target,list,0,ans);
+        // System.out.println(count);
+        return ans;
+
+    }
+
+    public static void Coin(int[] coins, int k,ArrayList<Integer> list,int idx, List<List<Integer>> ans) {
+        if (k == 0) {
+            // System.out.println(list);
+            // count++;
+            ans.add(new ArrayList<>(list));
+            return;
+        }
+        for (int i = idx; i < coins.length; i++) {
+            if (k >= coins[i]) {
+                list.add(coins[i]);
+                Coin(coins, k - coins[i], list,i,ans);
+                //  k = k + coins[i];
+                list.remove(list.size()-1);
+            }
+        }
+    }
+}
