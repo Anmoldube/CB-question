@@ -1,0 +1,84 @@
+// import java.linkedList;
+
+import java.io.EOFException;
+
+public class linkedList {
+    public class Node {
+        int data;
+        Node next;
+
+        public Node(int data) {
+            this.data = data;
+        }
+    }
+
+    private Node head; // Renamed from size to head
+    private Node tail;
+    private int size; // Size of the linked list
+
+    public void addFirst(int item) {
+        Node nn = new Node(item);
+        if (this.size == 0) {
+            this.head = nn;
+            this.tail = nn;
+        } else {
+            nn.next = this.head;
+            this.head = nn;
+        }
+        this.size++;
+    }
+
+    public void addLast(int item) {
+        if (this.size == 0) {
+            addLast(item);
+        } else {
+            Node nn = new Node(item);
+            this.tail.next = nn;
+            this.tail = nn;
+        }
+        this.size++;
+    }
+
+    public int getFirst() throws Exception {
+        if (this.size == 0) {
+            throw new EOFException("this is it...");
+        }
+        return this.head.data;
+    }
+
+    public int getLast() throws Exception {
+        if (this.size == 0) {
+            throw new EOFException("this is it...");
+        }
+        return this.tail.data;
+    }
+
+    public int removeFirst() {
+        Node temp = this.head;
+        this.head = this.head.next;
+        temp.next = null;
+        this.size--;
+        return temp.data;
+    }
+
+    public void display() {
+        Node temp = this.head;
+        while (temp != null) {
+            System.out.print(temp.data + "-->");
+            temp = temp.next;
+        }
+        System.out.println("null");
+    }
+
+    public static void main(String[] args) throws Exception {
+        linkedList ll = new linkedList();
+        ll.addFirst(10);
+        ll.addFirst(20);
+        ll.addFirst(40);
+        ll.addLast(5);
+        System.out.println(ll.getFirst());
+        System.out.println(ll.getLast());
+        System.out.println("Removed " + ll.removeFirst());
+        ll.display();
+    }
+}
