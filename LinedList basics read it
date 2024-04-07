@@ -1,0 +1,120 @@
+public class LinkedList {
+    public class Node {
+        int data;
+        Node next;
+        public Node(int data) {
+            this.data = data;
+        }
+    }
+         private Node head;
+         private int size;
+         private Node tail;
+
+    public void addfirst(int item){
+        Node nn = new Node(item);
+        if (size == 0) {
+            this.head = nn;
+            this.tail = nn;
+            this.size++;
+        } else {
+            nn.next = this.head;
+            this.head = nn;
+            this.size++;
+        }
+    }
+    public void addlast(int item){
+       // Node nn = new Node(item);
+        if (size==0) {
+            addfirst(item);
+        } else {
+            Node nn = new Node(item);
+            this.tail.next = nn;
+            this.tail = nn;
+            this.size++;
+        }
+    }
+    public void addAtAnyIndex(int item,int k) throws Exception{
+            if(k == 0){
+                addfirst(item);
+            }
+            else if(k == size){
+                addlast(item);
+            }
+            else{
+                    Node nn = new Node(item);
+                    Node k_1 = GetNode(k-1);
+                    k_1.next = nn;
+                    this.size++;
+            }
+    }
+    public int  Removefirst(){
+    Node temp = this.head;
+    this.head = this.head.next;
+    temp.next = null;
+    this.size--;
+    return temp.data;
+    }
+    public int  Removelast() throws Exception{
+            if(size == 1){
+                return Removefirst();
+            }
+                Node temp =  GetNode(this.size-2);
+                this.size--;
+                int rv = tail.data;
+                this.tail = temp;
+                temp.next = null;
+                return rv;
+        }
+        public int RemoveAtAnyIndex(int k) throws Exception{
+            if(k==0){
+            return Removefirst();
+            }
+            else if(k == size-1){
+                return Removelast();
+            }
+            else{
+                Node kth  = GetNode(k);
+                Node k_1 = GetNode(k-1);
+                this.size--;
+                k_1.next = kth.next;
+                kth.next = null;
+                return kth.data;
+            }
+        }
+    public int GetFirst() throws Exception {
+        if(size == 0)
+        {
+           throw new Exception("No node is Entered is the Linked list please watch...");
+        }
+            return this.head.data;
+    }
+    public int GetLast() throws Exception {
+        if(size == 0)
+        {
+           throw new Exception("No node is Entered is the Linked list please watch...");
+        }
+            return this.tail.data;
+    }
+    public int GetAtIndex(int k) throws Exception {
+        return GetNode(k).data;
+    }
+    private Node GetNode(int k) throws Exception {
+        if(k<0 || k >= size)
+        {
+           throw new Exception("No node is Entered is the Linked list please watch...");
+        }
+            Node temp = head;
+            for (int i = 1; i <= k; i++) {
+                temp = temp.next;
+            }
+            return temp;
+    }
+    public void display(){
+        Node temp = this.head;
+        while(temp != null){
+                System.out.print(temp.data+ "-->");
+                temp = temp.next;
+        }
+        System.out.println(".");
+    }
+}
