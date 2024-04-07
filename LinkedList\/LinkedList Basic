@@ -1,84 +1,120 @@
-// import java.linkedList;
-
-import java.io.EOFException;
-
-public class linkedList {
+public class LinkedList {
     public class Node {
         int data;
         Node next;
-
         public Node(int data) {
             this.data = data;
         }
     }
+         private Node head;
+         private int size;
+         private Node tail;
 
-    private Node head; // Renamed from size to head
-    private Node tail;
-    private int size; // Size of the linked list
-
-    public void addFirst(int item) {
+    public void addfirst(int item){
         Node nn = new Node(item);
-        if (this.size == 0) {
+        if (size == 0) {
             this.head = nn;
             this.tail = nn;
+            this.size++;
         } else {
             nn.next = this.head;
             this.head = nn;
+            this.size++;
         }
-        this.size++;
     }
-
-    public void addLast(int item) {
-        if (this.size == 0) {
-            addLast(item);
+    public void addlast(int item){
+       // Node nn = new Node(item);
+        if (size==0) {
+            addfirst(item);
         } else {
             Node nn = new Node(item);
             this.tail.next = nn;
             this.tail = nn;
+            this.size++;
         }
-        this.size++;
     }
-
-    public int getFirst() throws Exception {
-        if (this.size == 0) {
-            throw new EOFException("this is it...");
+    public void addAtAnyIndex(int item,int k) throws Exception{
+            if(k == 0){
+                addfirst(item);
+            }
+            else if(k == size){
+                addlast(item);
+            }
+            else{
+                    Node nn = new Node(item);
+                    Node k_1 = GetNode(k-1);
+                    k_1.next = nn;
+                    this.size++;
+            }
+    }
+    public int  Removefirst(){
+    Node temp = this.head;
+    this.head = this.head.next;
+    temp.next = null;
+    this.size--;
+    return temp.data;
+    }
+    public int  Removelast() throws Exception{
+            if(size == 1){
+                return Removefirst();
+            }
+                Node temp =  GetNode(this.size-2);
+                this.size--;
+                int rv = tail.data;
+                this.tail = temp;
+                temp.next = null;
+                return rv;
         }
-        return this.head.data;
-    }
-
-    public int getLast() throws Exception {
-        if (this.size == 0) {
-            throw new EOFException("this is it...");
+        public int RemoveAtAnyIndex(int k) throws Exception{
+            if(k==0){
+            return Removefirst();
+            }
+            else if(k == size-1){
+                return Removelast();
+            }
+            else{
+                Node kth  = GetNode(k);
+                Node k_1 = GetNode(k-1);
+                this.size--;
+                k_1.next = kth.next;
+                kth.next = null;
+                return kth.data;
+            }
         }
-        return this.tail.data;
+    public int GetFirst() throws Exception {
+        if(size == 0)
+        {
+           throw new Exception("No node is Entered is the Linked list please watch...");
+        }
+            return this.head.data;
     }
-
-    public int removeFirst() {
+    public int GetLast() throws Exception {
+        if(size == 0)
+        {
+           throw new Exception("No node is Entered is the Linked list please watch...");
+        }
+            return this.tail.data;
+    }
+    public int GetAtIndex(int k) throws Exception {
+        return GetNode(k).data;
+    }
+    private Node GetNode(int k) throws Exception {
+        if(k<0 || k >= size)
+        {
+           throw new Exception("No node is Entered is the Linked list please watch...");
+        }
+            Node temp = head;
+            for (int i = 1; i <= k; i++) {
+                temp = temp.next;
+            }
+            return temp;
+    }
+    public void display(){
         Node temp = this.head;
-        this.head = this.head.next;
-        temp.next = null;
-        this.size--;
-        return temp.data;
-    }
-
-    public void display() {
-        Node temp = this.head;
-        while (temp != null) {
-            System.out.print(temp.data + "-->");
-            temp = temp.next;
+        while(temp != null){
+                System.out.print(temp.data+ "-->");
+                temp = temp.next;
         }
-        System.out.println("null");
-    }
-
-    public static void main(String[] args) throws Exception {
-        linkedList ll = new linkedList();
-        ll.addFirst(10);
-        ll.addFirst(20);
-        ll.addFirst(40);
-        ll.addLast(5);
-        System.out.println(ll.getFirst());
-        System.out.println(ll.getLast());
-        System.out.println("Removed " + ll.removeFirst());
-        ll.display();
+        System.out.println(".");
     }
 }
