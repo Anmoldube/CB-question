@@ -1,0 +1,18 @@
+public class StackInterfaceusing implements StackI {
+
+    public void push() {
+
+    };
+
+    public void pop() {
+
+
+    };
+
+
+    public int size(){
+
+
+        return 0;
+    };
+}
