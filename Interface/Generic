@@ -1,0 +1,15 @@
+public class Genrics {
+    public static void main(String[] args) {
+        Integer[] arr = { 10, 20, 30, 40 };
+        display(arr);
+        String[] arr1 = { "kaju", "kalu", "raj", "sumit" };
+        display(arr1);
+    }
+
+    public static <t> void display(t[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            System.out.println(arr[i]);
+        }
+        // System.out.println();
+    }
+}
