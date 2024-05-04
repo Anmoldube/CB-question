@@ -1,0 +1,11 @@
+public interface StackI {
+
+
+    void push();
+    void pop();
+    int size();
+    public int stack();
+
+
+
+}
