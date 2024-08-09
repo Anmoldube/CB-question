@@ -1,0 +1,42 @@
+class oops {
+ static public class student {
+        String name;
+        int age;
+        int rol;
+            //we need a way to add the value of the above
+            // properties abject by abject
+
+            //we need one word to access every object 
+
+        // basically this key word is used to access the member fuction of upper or The this keyword refers to the current object in a method or constructor.
+
+        public student(String name, int age, int rol) {
+                this.name = name;
+                this.age = age;
+                this.rol = rol;
+        }
+        student(){
+            this("Anmol", 2, 3);
+        }
+        @Override
+        public String toString() {
+            return "Name: " + name + ", Age: " + age + ", Roll: " + rol;
+        }
+    }
+
+    public static void main(String[] args) {
+            // int anmol[] = new basically[];
+            // anmol[0] = {"anmol"};
+            // System.out.println(anmol[0]);
+            // basically anmol = new basically();
+            // anmol.name = "Anmol";
+            // System.out.println(anmol.name);
+            // System.out.println(anmol.age);
+            student[] anmol=  new student[1];
+            anmol[0] = new student("anmol", 21, 1);
+            System.out.println(anmol[0]);
+            student randow = new student();
+            System.out.println(randow.name);
+     }
+
+}
