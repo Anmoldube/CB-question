@@ -1,0 +1,9 @@
+// package testws;
+
+public class Mainw { // Ensure class name matches the file name
+
+    public static void main(String[] args) {
+        Humans anmol = new Humans(21, "Anmol", false); // Corrected class name usage
+        System.out.println("Population: " + anmol.name); // Access static variable using the class name
+    }
+}
