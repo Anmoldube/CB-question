@@ -1,0 +1,45 @@
+//bsically what static is do that basically creates an instant of class... instances mean 
+A class is like a blueprint for an object. It defines the structure and behavior that the objects of that type will have.
+example:-
+class Car {
+    // Attributes (properties) of the Car class
+    String color;
+    String model;
+    int year;
+
+    // Method (behavior) of the Car class
+    void startEngine() {
+        System.out.println("Engine started.");
+    }
+}
+
+
+
+public class Mainw { // Ensure class name matches the file name
+
+    
+    
+    
+    public static void main(String[] args) {
+        // Create an instance of the Humans class
+        Humans anmol = new Humans(21, "Anmol", false);
+
+        // Access and print the name and population
+        System.out.println("Name: " + anmol.name);
+        System.out.println("Population: " + Humans.population); // Correct access to the static variable
+
+        // Create an instance of Mainw to call non-static methods
+        Mainw funn = new Mainw();
+        funn.fun2(); // Call non-static method fun2()
+    }
+
+    // Non-static method that calls another non-static method
+    void fun2() {
+        greeting();
+    }
+
+    // Non-static method that prints a message
+    void greeting() {
+        System.out.println("It day...");
+    }
+}
