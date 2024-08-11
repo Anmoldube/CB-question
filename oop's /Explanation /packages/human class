@@ -1,0 +1,20 @@
+// package testws;
+
+public class Humans {
+    int age;
+    String name;
+    boolean status;
+    static long population = 0; // Initialize population to 0
+
+  public Humans(int age, String name, boolean status) {
+        this.age = age;
+        this.name = name;
+        this.status = status;
+        Humans.population += 1; // Increment population when a new human is created
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + ", Age: " + age + ", Status: " + (status ? "Alive" : "Not Alive");
+    }
+}
